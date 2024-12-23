@@ -40,7 +40,7 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                         <Text
                             style={[
                                 styles.amountText,
-                                item.amount < 0 ? { color: Colors.redText } : { color: Colors.greenText },
+                                item.amount > 0 ? {color: Colors.greenText} : { color: Colors.mainText },
                             ]}
                         >
                             {item.amount} ₴
@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     },
     amountText: {
         fontSize: FontSize.fs14,
-        fontWeight: 'bold',
     },
 });
 
