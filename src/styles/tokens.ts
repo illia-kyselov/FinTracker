@@ -16,6 +16,10 @@ export const Radius = {
     r10: 10,
 }
 
+export const Gap = {
+    g20: 20,
+}
+
 export const Padding = {
     p10: 10,
     p20: 20,
