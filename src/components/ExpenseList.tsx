@@ -3,14 +3,15 @@ import { FlatList, Text, StyleSheet } from 'react-native';
 import ExpenseItem from './ExpenseItem';
 import { Colors, FontSize, MarginTop } from '../styles/tokens';
 import { useExpenses } from '../hooks/useExpenses';
-
+import { sortGroupedExpensesByDate } from '../helpers/sortGroupedExpensesByDate';
 
 const ExpenseList: React.FC = () => {
     const { groupedExpenses } = useExpenses();
+    const sortedDates = sortGroupedExpensesByDate(groupedExpenses);
 
     return (
         <FlatList
-            data={Object.keys(groupedExpenses)}
+            data={sortedDates}
             keyExtractor={(item) => item}
             renderItem={({ item }) => <ExpenseItem item={groupedExpenses[item]} />}
             ListEmptyComponent={

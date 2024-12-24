@@ -23,8 +23,8 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                     style={[
                         styles.dailyBalance,
                         dailyBalance < 0
-                            ? { color: '#FF6347', backgroundColor: 'hsla(0, 94.00%, 54.50%, 0.20)' }
-                            : { color: Colors.greenText, backgroundColor: 'hsla(120, 100.00%, 25.10%, 0.20)' },
+                            ? { color: Colors.redText, backgroundColor: Colors.redBgColor }
+                            : { color: Colors.greenText, backgroundColor: Colors.greenBgColor },
                     ]}
                 >
                     {dailyBalance.toFixed(2)}₴
@@ -40,7 +40,7 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                         <Text
                             style={[
                                 styles.amountText,
-                                item.amount > 0 ? {color: Colors.greenText} : { color: Colors.mainText },
+                                item.amount > 0 ? { color: Colors.greenText } : { color: Colors.mainText },
                             ]}
                         >
                             {item.amount} ₴
