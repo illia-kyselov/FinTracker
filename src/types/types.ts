@@ -13,3 +13,5 @@ export interface Expense {
 }
 
 export type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
+
+export { StackNavigationProp };

@@ -45,6 +45,10 @@ export const MarginTop = {
     mt20: 20,
 }
 
+export const MarginRight = {
+    mr10: 10,
+}
+
 export const MarginBottom = {
     mb5: 5,
     mb10: 10,

@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { format, parseISO } from 'date-fns';
 import { uk } from 'date-fns/locale';
-import { Colors, FontSize, MarginBottom, Padding, PaddingVertical, PaddingHorizontal, Radius } from '../styles/tokens';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Colors, FontSize, MarginBottom, Padding, PaddingVertical, PaddingHorizontal, Radius, MarginRight } from '../styles/tokens';
 import { calculateTotalBalance } from '../helpers/calculateTotalBalance';
 import { Expense } from '../types/types';
 
@@ -36,6 +37,9 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                 keyExtractor={(expense: Expense) => expense.id}
                 renderItem={({ item }) => (
                     <View style={styles.expenseDescription}>
+                        {item.amount > 0 && (
+                            <Ionicons name="cash-outline" size={18} color={Colors.greenText} style={styles.icon} />
+                        )}
                         <Text style={styles.expenseText}>{item.description}</Text>
                         <Text
                             style={[
@@ -81,17 +85,24 @@ const styles = StyleSheet.create({
     expenseDescription: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
         paddingVertical: PaddingVertical.pv10,
         marginBottom: MarginBottom.mb5,
         borderBottomWidth: 1,
         borderBottomColor: Colors.grey,
     },
+    icon: {
+        marginRight: MarginRight.mr10,
+        alignSelf: 'center',
+    },
     expenseText: {
         color: Colors.mainText,
         fontSize: FontSize.fs16,
+        flex: 1,
     },
     amountText: {
         fontSize: FontSize.fs14,
+        textAlign: 'right',
     },
 });
 
