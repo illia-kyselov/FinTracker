@@ -38,7 +38,7 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                 renderItem={({ item }) => (
                     <View style={styles.expenseDescription}>
                         {item.amount > 0 && (
-                            <Ionicons name="cash-outline" size={18} color={Colors.greenText} style={styles.icon} />
+                            <Ionicons name="card-outline" size={18} color={Colors.greenText} style={styles.icon} />
                         )}
                         <Text style={styles.expenseText}>{item.description}</Text>
                         <Text

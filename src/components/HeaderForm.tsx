@@ -18,7 +18,7 @@ const HeaderForm: React.FC = () => {
     return (
         <View style={styles.header}>
             <TouchableOpacity onPress={onBackPress}>
-                <Icon name="arrow-back-outline" size={24} color={Colors.greenText} />
+                <Icon name="arrow-back-outline" size={30} color={Colors.greenText} />
             </TouchableOpacity>
             <View style={{ width: 24 }} />
         </View>
