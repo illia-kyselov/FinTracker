@@ -16,6 +16,10 @@ export const store = configureStore({
         expenses: persistedExpenseReducer,
         categories: categoriesReducer,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 });
 
 export const persistor = persistStore(store);

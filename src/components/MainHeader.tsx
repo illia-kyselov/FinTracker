@@ -21,7 +21,7 @@ const MainHeader: React.FC = () => {
 
     return (
         <View style={styles.header}>
-            <TouchableOpacity onPress={handleStatsPress} style={styles.icon}>
+            <TouchableOpacity onPress={handleStatsPress} style={[styles.icon, styles.statictic]}>
                 <Ionicons name="stats-chart-outline" size={30} color={Colors.greenText} />
             </TouchableOpacity>
             <TouchableOpacity onPress={handleAddExpense} style={styles.icon}>
@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginRight: MarginRight.mr10,
+    },
+    statictic: {
+        display: 'none'
     },
 });
 
