@@ -17,7 +17,7 @@ interface ExpenseFormProps {
 const ExpenseForm: React.FC<ExpenseFormProps> = ({ type, navigation }) => {
     const [description, setDescription] = useState('');
     const [amount, setAmount] = useState('');
-    const [category, setCategory] = useState<string>('');
+    const [category, setCategory] = useState<string>('Без категорії');
     const [errors, setErrors] = useState<{ description?: string; amount?: string; category?: string }>({});
 
     const handleAddExpense = useAddExpense();
@@ -53,22 +53,22 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ type, navigation }) => {
         <View style={styles.container}>
             <View>
                 <Input
-                    placeholder="Опис"
-                    value={description}
-                    onChangeText={setDescription}
-                    style={errors.description ? styles.inputError : {}}
-                />
-                {errors.description && <Text style={styles.errorText}>{errors.description}</Text>}
-            </View>
-
-            <View>
-                <Input
                     placeholder="Скільки?"
                     value={amount}
                     onChangeText={setAmount}
                     style={errors.amount ? styles.inputError : {}}
                 />
                 {errors.amount && <Text style={styles.errorText}>{errors.amount}</Text>}
+            </View>
+
+            <View>
+                <Input
+                    placeholder="Примітки"
+                    value={description}
+                    onChangeText={setDescription}
+                    style={errors.description ? styles.inputError : {}}
+                />
+                {errors.description && <Text style={styles.errorText}>{errors.description}</Text>}
             </View>
 
             <View style={styles.categoryPicker}>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Colors.primary,
         paddingTop: PaddingTop.pt50,
-        gap: Gap.g20,
+        gap: Gap.g30,
     },
     inputError: {
         borderColor: Colors.error,

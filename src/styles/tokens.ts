@@ -17,7 +17,7 @@ export const Radius = {
 }
 
 export const Gap = {
-    g20: 20,
+    g30: 30,
 }
 
 export const Padding = {
