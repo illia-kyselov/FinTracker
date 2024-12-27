@@ -28,18 +28,13 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ type, navigation }) => {
     const handleSubmit = () => {
         const newErrors: { description?: string; amount?: string; category?: string } = {};
 
-        if (!description) {
-            newErrors.description = 'Це поле обов\'язкове';
-        } else if (!isNaN(Number(description))) {
-            newErrors.description = 'Тут має бути тільки текст';
-        }
+        if (!description || !isNaN(Number(description))) newErrors.description = !description ? 'Це поле обов\'язкове' : 'Тут має бути тільки текст';
 
-        if (!amount) newErrors.amount = 'Це поле обов\'язкове';
-        else if (isNaN(Number(amount))) newErrors.amount = 'Тут має бути тільки число';
+        if (!amount || isNaN(Number(amount))) newErrors.amount = !amount ? 'Це поле обов\'язкове' : 'Тут має бути тільки число';
 
         if (!category) newErrors.category = 'Оберіть категорію';
 
-        if (Object.keys(newErrors).length > 0) {
+        if (Object.keys(newErrors).length) {
             setErrors(newErrors);
             return;
         }
