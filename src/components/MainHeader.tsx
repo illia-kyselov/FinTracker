@@ -6,26 +6,15 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../types/types';
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
-
 const MainHeader: React.FC = () => {
-    const navigation = useNavigation<HomeScreenNavigationProp>();
-
-    const handleAddExpense = () => {
-        navigation.navigate('AddExpense');
-    };
-
     const handleStatsPress = () => {
         console.log('Stats icon pressed');
     };
 
     return (
         <View style={styles.header}>
-            <TouchableOpacity onPress={handleStatsPress} style={[styles.icon, styles.statictic]}>
+            <TouchableOpacity onPress={handleStatsPress} style={styles.icon}>
                 <Ionicons name="stats-chart-outline" size={30} color={Colors.greenText} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleAddExpense} style={styles.icon}>
-                <Ionicons name="add-circle-outline" size={30} color={Colors.greenText} />
             </TouchableOpacity>
         </View>
     );
@@ -40,9 +29,6 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginRight: MarginRight.mr10,
-    },
-    statictic: {
-        display: 'none'
     },
 });
 

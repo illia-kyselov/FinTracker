@@ -15,6 +15,7 @@ export const Colors = {
 
 export const Radius = {
     r10: 10,
+    r50: 50,
 }
 
 export const Gap = {
