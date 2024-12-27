@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Colors, PaddingHorizontal, PaddingVertical } from '../styles/tokens';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../types/types';
+import { PaddingVertical, PaddingHorizontal, Colors } from '../../styles/tokens';
+import { RootStackParamList } from '../../types/types';
 
 type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
 
-const BackButtonHeader : React.FC = () => {
+const BackButtonHeader: React.FC = () => {
     const navigation = useNavigation<AddExpenseScreenNavigationProp>();
 
     const onBackPress = () => {
@@ -18,7 +18,7 @@ const BackButtonHeader : React.FC = () => {
     return (
         <View style={styles.header}>
             <TouchableOpacity onPress={onBackPress}>
-                <Icon name="arrow-back-outline" size={30} color={Colors.greenText} />
+                <Icon name="arrow-back-outline" size={24} color={Colors.greenText} />
             </TouchableOpacity>
             <View style={{ width: 24 }} />
         </View>
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default BackButtonHeader ;
+export default BackButtonHeader;

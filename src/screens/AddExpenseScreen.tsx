@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import BackButtonHeader  from '../components/BackButtonHeader';
 import TabsButtons from '../components/TabsButtons';
 import ExpenseForm from '../components/ExpenseForm';
 import { Colors, Padding, PaddingTop } from '../styles/tokens';
-
-type RootStackParamList = {
-    Home: undefined;
-    AddExpense: undefined;
-};
+import { RootStackParamList } from '../types/types';
+import BackButtonHeader from '../components/UI/BackButtonHeader';
 
 type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
 
@@ -22,7 +18,7 @@ export default function AddExpenseScreen({ navigation }: Props) {
 
     return (
         <View style={styles.container}>
-            <BackButtonHeader  />
+            <BackButtonHeader />
             <TabsButtons type={type} setType={setType} />
             <ExpenseForm type={type} navigation={navigation} />
         </View>

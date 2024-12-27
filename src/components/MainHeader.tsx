@@ -1,14 +1,18 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Colors, MarginBottom, MarginRight, } from '../styles/tokens';
+import { Colors, MarginBottom, MarginRight } from '../styles/tokens';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../types/types';
 
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Analytics'>;
+
 const MainHeader: React.FC = () => {
+    const navigation = useNavigation<HomeScreenNavigationProp>();
+
     const handleStatsPress = () => {
-        console.log('Stats icon pressed');
+        navigation.navigate('Analytics');
     };
 
     return (
