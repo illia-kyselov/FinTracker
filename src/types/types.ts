@@ -10,6 +10,7 @@ export interface Expense {
     description: string;
     amount: number;
     date: string;
+    category: string;
 }
 
 export type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;

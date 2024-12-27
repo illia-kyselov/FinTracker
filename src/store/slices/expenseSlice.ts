@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface Expense {
-    id: string;
-    description: string;
-    amount: number;
-    date: string;
-}
+import { Expense } from '../../types/types';
 
 interface ExpenseState {
     list: Expense[];

@@ -15,7 +15,7 @@ const ExpenseList: React.FC = () => {
             keyExtractor={(item) => item}
             renderItem={({ item }) => <ExpenseItem item={groupedExpenses[item]} />}
             ListEmptyComponent={
-                <Text style={styles.noExpensesText}>Немає даних</Text>
+                <Text style={styles.noExpensesText}>Упс... Поки не маю данних про Вас</Text>
             }
         />
     );

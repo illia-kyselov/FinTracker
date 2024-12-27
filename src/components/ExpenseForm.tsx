@@ -44,7 +44,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ type, navigation }) => {
             return;
         }
 
-        handleAddExpense(description, amount, category, navigation);
+        handleAddExpense(description, amount, type, navigation, category);
     };
 
     const categories = type === 'expense' ? expenseCategories : incomeCategories;

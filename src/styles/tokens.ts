@@ -7,6 +7,7 @@ export const Colors = {
     redText: '#FF6347',
     redBgColor: 'hsla(0, 94.00%, 54.50%, 0.20)',
     grey: '#333333',
+    greyText: '#575757',
     black: '#1a1a1a',
     placeholder: 'rgba(84, 237, 104, 0.52)',
     error: 'red'

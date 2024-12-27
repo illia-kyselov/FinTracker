@@ -31,7 +31,7 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                     {dailyBalance.toFixed(2)}₴
                 </Text>
             </View>
-
+            
             <FlatList
                 data={[...item].reverse()}
                 keyExtractor={(expense: Expense) => expense.id}
@@ -40,7 +40,10 @@ const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
                         {item.amount > 0 && (
                             <Ionicons name="card-outline" size={18} color={Colors.greenText} style={styles.icon} />
                         )}
-                        <Text style={styles.expenseText}>{item.description}</Text>
+                        <View>
+                            <Text style={styles.expenseText}>{item.category}</Text>
+                            <Text style={styles.subText}>{item.description}</Text>
+                        </View>
                         <Text
                             style={[
                                 styles.amountText,
@@ -98,9 +101,13 @@ const styles = StyleSheet.create({
     expenseText: {
         color: Colors.mainText,
         fontSize: FontSize.fs16,
-        flex: 1,
+    },
+    subText: {
+        color: Colors.greyText,
+        fontSize: FontSize.fs12,
     },
     amountText: {
+        flex: 1,
         fontSize: FontSize.fs14,
         textAlign: 'right',
     },

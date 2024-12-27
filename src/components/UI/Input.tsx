@@ -23,6 +23,7 @@ const Input: React.FC<InputProps> = ({
             value={value}
             onChangeText={onChangeText}
             keyboardType="default"
+            maxLength={25}
         />
     );
 };
