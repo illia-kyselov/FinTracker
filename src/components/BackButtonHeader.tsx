@@ -8,7 +8,7 @@ import { RootStackParamList } from '../types/types';
 
 type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
 
-const HeaderForm: React.FC = () => {
+const BackButtonHeader : React.FC = () => {
     const navigation = useNavigation<AddExpenseScreenNavigationProp>();
 
     const onBackPress = () => {
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HeaderForm;
+export default BackButtonHeader ;

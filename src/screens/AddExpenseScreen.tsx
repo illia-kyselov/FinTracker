@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import HeaderForm from '../components/HeaderForm';
+import BackButtonHeader  from '../components/BackButtonHeader';
 import TabsButtons from '../components/TabsButtons';
 import ExpenseForm from '../components/ExpenseForm';
 import { Colors, Padding, PaddingTop } from '../styles/tokens';
@@ -22,7 +22,7 @@ export default function AddExpenseScreen({ navigation }: Props) {
 
     return (
         <View style={styles.container}>
-            <HeaderForm />
+            <BackButtonHeader  />
             <TabsButtons type={type} setType={setType} />
             <ExpenseForm type={type} navigation={navigation} />
         </View>
