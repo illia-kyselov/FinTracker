@@ -8,11 +8,11 @@ type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'A
 export const useAddExpense = () => {
     const dispatch = useDispatch();
 
-    const handleAddExpense = (description: string, amount: string, type: string, navigation: AddExpenseScreenNavigationProp, category: string) => {
-        if (description && amount) {
+    const handleAddExpense = (amount: string, type: string, navigation: AddExpenseScreenNavigationProp, category: string, description?: string) => {
+        if (description || amount) {
             const newExpense = {
                 id: Math.random().toString(),
-                description,
+                description: description || '',
                 amount: type === 'expense' ? -parseFloat(amount) : parseFloat(amount),
                 date: new Date().toISOString(),
                 category,

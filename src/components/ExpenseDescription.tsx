@@ -20,7 +20,7 @@ const ExpenseDescription: React.FC<ExpenseDescriptionProps> = ({ category, descr
         />
         <View>
             <Text style={styles.expenseText}>{category}</Text>
-            <Text style={styles.subText}>{description}</Text>
+            {description ? <Text style={styles.subText}>{description}</Text> : null}
         </View>
         <Text
             style={[

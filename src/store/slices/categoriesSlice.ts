@@ -7,8 +7,8 @@ interface CategoriesState {
 
 const initialState: CategoriesState = {
     expenseCategories: [
-        'Їжа та напої',
         'Без категорії',
+        'Їжа та напої',
         'Бакалія',
         'Транспорт',
         'Інтернет',
@@ -17,8 +17,8 @@ const initialState: CategoriesState = {
         'Покупки',
     ],
     incomeCategories: [
-        'Заробітня плата',
         'Без категорії',
+        'Заробітня плата',
         'Бюджет',
     ],
 };

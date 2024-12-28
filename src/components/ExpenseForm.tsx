@@ -26,20 +26,22 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({ type, navigation }) => {
     const incomeCategories = useSelector((state: RootState) => state.categories.incomeCategories);
 
     const handleSubmit = () => {
-        const newErrors: { description?: string; amount?: string; category?: string } = {};
+        const newErrors: { description?: string; amount?: string } = {};
 
-        if (!description || !isNaN(Number(description))) newErrors.description = !description ? 'Це поле обов\'язкове' : 'Тут має бути тільки текст';
+        if (!amount || !/^\d+(\.\d+)?$/.test(amount)) {
+            newErrors.amount = !amount ? 'Це поле обов\'язкове' : 'Тут має бути тільки число';
+        }
 
-        if (!amount || isNaN(Number(amount))) newErrors.amount = !amount ? 'Це поле обов\'язкове' : 'Тут має бути тільки число';
-
-        if (!category) newErrors.category = 'Оберіть категорію';
+        if (description && /\d/.test(description)) {
+            newErrors.description = 'Тут має бути тільки текст';
+        }
 
         if (Object.keys(newErrors).length) {
             setErrors(newErrors);
             return;
         }
 
-        handleAddExpense(description, amount, type, navigation, category);
+        handleAddExpense(amount, type, navigation, category, description || '');
     };
 
     const categories = type === 'expense' ? expenseCategories : incomeCategories;
