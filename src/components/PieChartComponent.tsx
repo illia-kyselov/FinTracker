@@ -14,15 +14,13 @@ const PieChartComponent: React.FC<PieChartComponentProps> = ({ pieData, totalExp
             {pieData.length > 0 ? (
                 <PieChart
                     data={pieData}
-                    radius={90}
-                    innerRadius={60}
-                    showText={true}
+                    radius={100}
+                    innerRadius={70}
                     textColor={Colors.greenText}
                     textSize={16}
                     innerCircleColor={Colors.primary}
                     donut
                     showGradient
-                    sectionAutoFocus
                     centerLabelComponent={() => (
                         <View style={styles.centerLabel}>
                             <Text style={styles.totalAmount}>-{totalExpenses.toFixed(0)} ₴</Text>

@@ -6,7 +6,7 @@ import { PaddingVertical, MarginBottom, FontSize, Colors } from '../styles/token
 
 interface ExpenseHistoryProps {
     groupedExpenses: Array<{ category: string; amount: number; transactions: number }>;
-    pieData: Array<{ value: number }>
+    pieData: Array<{ value: number; color: string }>
 }
 
 const ExpenseHistory: React.FC<ExpenseHistoryProps> = ({ groupedExpenses, pieData }) => {
@@ -17,7 +17,7 @@ const ExpenseHistory: React.FC<ExpenseHistoryProps> = ({ groupedExpenses, pieDat
                     <Ionicons
                         name={categoryIcons[item.category]}
                         size={22}
-                        color={Colors.greenText}
+                        color={pieData[index].color}
                         style={styles.icon}
                     />
                     <View>
