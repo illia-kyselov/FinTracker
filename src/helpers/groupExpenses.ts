@@ -1,7 +1,9 @@
-export const groupExpenses = (categories: any[], expenses: any[]) => {
-    return categories.map((category: any) => {
-        const categoryExpenses = expenses.filter((expense: { category: any; }) => expense.category === category);
-        const categorySum = categoryExpenses.reduce((sum: any, expense: { amount: any; }) => sum + expense.amount, 0);
-        return { category, amount: categorySum, transactions: categoryExpenses.length };
+import { Category, Expense, GroupedExpense } from "../types/types";
+
+export const groupExpenses = (categories: Category[], expenses: Expense[]): GroupedExpense[] => {
+    return categories.map((category) => {
+        const categoryExpenses = expenses.filter((expense) => expense.category === category.name);
+        const categorySum = categoryExpenses.reduce((sum, expense) => sum + expense.amount, 0);
+        return { category: category.name, amount: categorySum, transactions: categoryExpenses.length };
     });
 };

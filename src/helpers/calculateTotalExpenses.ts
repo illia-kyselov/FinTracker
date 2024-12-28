@@ -1,3 +1,5 @@
-export const calculateTotalExpenses = (groupedExpenses: any[]) => {
-    return groupedExpenses.reduce((sum: number, item: { amount: number; }) => sum + Math.abs(item.amount), 0);
+import { GroupedExpense } from "../types/types";
+
+export const calculateTotalExpenses = (groupedExpenses: GroupedExpense[]): number => {
+    return groupedExpenses.reduce((sum, item) => sum + Math.abs(item.amount), 0);
 };

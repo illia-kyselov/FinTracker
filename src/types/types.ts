@@ -14,6 +14,16 @@ export interface Expense {
     category: string;
 }
 
+export interface GroupedExpense {
+    category: string;
+    amount: number;
+    transactions: number;
+}
+
+export interface Category {
+    name: string;
+}
+
 export type AddExpenseScreenNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
 
 export { StackNavigationProp };

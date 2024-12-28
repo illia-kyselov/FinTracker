@@ -8,6 +8,7 @@ import PieChartComponent from '../components/PieChartComponent';
 import ExpenseHistory from '../components/ExpenseHistory';
 
 import { Colors, Padding, PaddingTop } from '../styles/tokens';
+import { GroupedExpense, Category, Expense } from '../types/types';
 
 import { groupExpenses } from '../helpers/groupExpenses';
 import { calculateTotalExpenses } from '../helpers/calculateTotalExpenses';
@@ -15,11 +16,13 @@ import { calculatePieData } from '../helpers/calculatePieData';
 
 
 const AnalyticsScreen: React.FC = () => {
-    const expenseCategories = useSelector((state: RootState) => state.categories.expenseCategories);
-    const expenses = useSelector((state: RootState) => state.expenses.list);
+    const expenseCategories: Category[] = useSelector((state: RootState) =>
+        state.categories.expenseCategories.map((categoryName: string) => ({ name: categoryName }))
+    );
+    const expenses: Expense[] = useSelector((state: RootState) => state.expenses.list);
 
-    const groupedExpenses = groupExpenses(expenseCategories, expenses);
-    const totalExpenses = calculateTotalExpenses(groupedExpenses);
+    const groupedExpenses: GroupedExpense[] = groupExpenses(expenseCategories, expenses);
+    const totalExpenses: number = calculateTotalExpenses(groupedExpenses);
     const pieData = calculatePieData(groupedExpenses, totalExpenses);
 
     return (
