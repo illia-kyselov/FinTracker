@@ -63,9 +63,10 @@ export const MarginBottom = {
 }
 
 export const FontSize = {
-    fs27: 27,
+    fs12: 12,
+    fs14: 14,
     fs16: 16,
     fs18: 18,
-    fs14: 14,
-    fs12: 12,
+    fs22: 22,
+    fs27: 27,
 }
