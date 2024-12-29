@@ -4,6 +4,7 @@ export type RootStackParamList = {
     Home: undefined;
     AddExpense: undefined;
     Analytics: undefined;
+    FutureExpensesPage: undefined;
 };
 
 export interface Expense {

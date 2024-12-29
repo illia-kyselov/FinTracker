@@ -8,13 +8,18 @@ import PieChartComponent from '../components/PieChartComponent';
 import ExpenseHistory from '../components/ExpenseHistory';
 
 import { Colors, FontSize, MarginTop, Padding, PaddingTop } from '../styles/tokens';
-import { GroupedExpense, Category, Expense } from '../types/types';
+import { GroupedExpense, Category, Expense, RootStackParamList, StackNavigationProp } from '../types/types';
 
 import { groupExpenses } from '../helpers/groupExpenses';
 import { calculateTotalExpenses } from '../helpers/calculateTotalExpenses';
 import { calculatePieData } from '../helpers/calculatePieData';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
+type FutureExpensesPageNavigationProp = StackNavigationProp<RootStackParamList, 'AddExpense'>;
 
 const AnalyticsScreen: React.FC = () => {
+    const navigation = useNavigation<FutureExpensesPageNavigationProp>();
     const expenseCategories: Category[] = useSelector((state: RootState) =>
         state.categories.expenseCategories.map((categoryName: string) => ({ name: categoryName }))
     );
@@ -26,9 +31,22 @@ const AnalyticsScreen: React.FC = () => {
 
     const hasData = groupedExpenses.length > 0 && totalExpenses > 0;
 
+    const handleNavigateToAnalyticsPage = () => {
+        navigation.navigate('FutureExpensesPage');
+    };
+
     return (
         <View style={styles.container}>
-            <BackButtonHeader />
+            <View style={styles.headerContainer}>
+                <BackButtonHeader />
+                <Ionicons
+                    name="analytics"
+                    size={24}
+                    color={Colors.greenText}
+                    onPress={handleNavigateToAnalyticsPage}
+                    style={styles.analyticsIcon}
+                />
+            </View>
             <ScrollView>
                 {hasData ? (
                     <View style={styles.chartContainer}>
@@ -49,6 +67,15 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.primary,
         paddingTop: PaddingTop.pt50,
         padding: Padding.p20,
+    },
+    headerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%'
+    },
+    analyticsIcon: {
+        marginLeft: 'auto',
     },
     chartContainer: {
         alignItems: 'center',

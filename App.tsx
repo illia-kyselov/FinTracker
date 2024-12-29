@@ -8,6 +8,7 @@ import { store, persistor } from './src/store/store';
 import HomeScreen from './src/screens/HomeScreen';
 import AddExpenseScreen from './src/screens/AddExpenseScreen';
 import AnalyticsScreen from './src/screens/AnalyticsScreen';
+import FutureExpensesPage from './src/screens/FutureExpensesPage';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
                         <Stack.Screen name="Home" component={HomeScreen} />
                         <Stack.Screen name="AddExpense" component={AddExpenseScreen} />
                         <Stack.Screen name="Analytics" component={AnalyticsScreen} />
+                        <Stack.Screen name="FutureExpensesPage" component={FutureExpensesPage} />
                     </Stack.Navigator>
                 </NavigationContainer>
             </PersistGate>
