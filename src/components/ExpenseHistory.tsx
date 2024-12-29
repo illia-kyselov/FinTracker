@@ -27,12 +27,7 @@ const ExpenseHistory: React.FC<ExpenseHistoryProps> = ({ groupedExpenses, pieDat
                         <Text style={styles.transactionCountText}>Транзакцій: {item.transactions}</Text>
                     </View>
                     <View style={styles.amountContainer}>
-                        <Text
-                            style={[
-                                styles.amountText,
-                                item.amount > 0 ? { color: Colors.greenText } : { color: Colors.mainText },
-                            ]}
-                        >
+                        <Text style={styles.amountText} >
                             -{Math.abs(item.amount).toFixed(0)} ₴
                         </Text>
                         <Text style={styles.percentageText}>
@@ -77,6 +72,7 @@ const styles = StyleSheet.create({
     },
     amountText: {
         fontSize: FontSize.fs14,
+        color: Colors.mainText,
         textAlign: 'right',
     },
     percentageText: {
