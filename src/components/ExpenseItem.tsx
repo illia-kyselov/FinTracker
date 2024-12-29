@@ -2,9 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { format, parseISO } from 'date-fns';
 import { uk } from 'date-fns/locale';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Colors, FontSize, MarginBottom, Padding, PaddingVertical, PaddingHorizontal, Radius, MarginRight } from '../styles/tokens';
-import { calculateTotalBalance } from '../helpers/calculateTotalBalance';
+import { calculateDayBalance } from '../helpers/calculateDayBalance';
 import { Expense } from '../types/types';
 import DailyBalance from './DailyBalance';
 import ExpenseDescription from './ExpenseDescription';
@@ -14,7 +13,7 @@ interface ExpenseItemProps {
 }
 
 const ExpenseItem: React.FC<ExpenseItemProps> = ({ item }) => {
-    const dailyBalance = calculateTotalBalance(item);
+    const dailyBalance = calculateDayBalance(item);
 
     return (
         <View style={styles.expenseItem}>

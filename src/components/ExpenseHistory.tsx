@@ -10,9 +10,11 @@ interface ExpenseHistoryProps {
 }
 
 const ExpenseHistory: React.FC<ExpenseHistoryProps> = ({ groupedExpenses, pieData }) => {
+    const filteredGroupedExpenses = groupedExpenses.filter(item => item.amount !== 0);
+
     return (
         <View style={styles.history}>
-            {groupedExpenses.map((item, index) => (
+            {filteredGroupedExpenses.map((item, index) => (
                 <View key={index} style={styles.expenseItem}>
                     <Ionicons
                         name={categoryIcons[item.category]}
