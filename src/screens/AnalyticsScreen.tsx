@@ -42,7 +42,7 @@ const AnalyticsScreen: React.FC = () => {
                 {hasData &&
                     <Ionicons
                         name="analytics"
-                        size={24}
+                        size={30}
                         color={Colors.greenText}
                         onPress={handleNavigateToAnalyticsPage}
                         style={styles.analyticsIcon}
