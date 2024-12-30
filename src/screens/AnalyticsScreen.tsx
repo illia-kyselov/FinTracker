@@ -39,13 +39,14 @@ const AnalyticsScreen: React.FC = () => {
         <View style={styles.container}>
             <View style={styles.headerContainer}>
                 <BackButtonHeader />
-                <Ionicons
-                    name="analytics"
-                    size={24}
-                    color={Colors.greenText}
-                    onPress={handleNavigateToAnalyticsPage}
-                    style={styles.analyticsIcon}
-                />
+                {hasData &&
+                    <Ionicons
+                        name="analytics"
+                        size={24}
+                        color={Colors.greenText}
+                        onPress={handleNavigateToAnalyticsPage}
+                        style={styles.analyticsIcon}
+                    />}
             </View>
             <ScrollView>
                 {hasData ? (
