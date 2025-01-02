@@ -5,6 +5,7 @@ import { Colors, FontSize, MarginTop } from '../styles/tokens';
 import { useExpenses } from '../hooks/useExpenses';
 import { sortGroupedExpensesByDate } from '../helpers/sortGroupedExpensesByDate';
 import PastMonthItem from './PastMonthItem';
+import { isPastMonth } from '../helpers/isPastMonth';
 
 const ExpenseList: React.FC = () => {
     const { groupedExpenses } = useExpenses();
@@ -16,9 +17,9 @@ const ExpenseList: React.FC = () => {
             keyExtractor={(item) => item}
             renderItem={({ item }) => {
                 const expensesForMonth = groupedExpenses[item];
-                const isPastMonth = new Date(expensesForMonth[0].date).getMonth() < new Date().getMonth();
+                const isPast = isPastMonth(expensesForMonth[0].date);
 
-                return isPastMonth
+                return isPast
                     ? <PastMonthItem expensesForMonth={expensesForMonth} />
                     : <ExpenseItem item={expensesForMonth} />;
             }}
